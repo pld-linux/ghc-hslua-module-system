@@ -6,7 +6,7 @@
 Summary:	Lua module wrapper around Haskell's System module
 Name:		ghc-%{pkgname}
 Version:	0.2.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/hslua-module-system
@@ -15,14 +15,17 @@ Source0:	http://hackage.haskell.org/package/%{pkgname}-%{version}/%{pkgname}-%{v
 URL:		http://hackage.haskell.org/package/hslua-module-system
 BuildRequires:	ghc >= 6.12.3
 BuildRequires:	ghc-hslua
+BuildRequires:	ghc-temporary
 %if %{with prof}
 BuildRequires:	ghc-prof
 BuildRequires:	ghc-hslua-prof
+BuildRequires:	ghc-temporary-prof
 %endif
 BuildRequires:	rpmbuild(macros) >= 1.608
 %requires_eq	ghc
 Requires(post,postun):	/usr/bin/ghc-pkg
 Requires:	ghc-hslua
+Requires:	ghc-temporary
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # debuginfo is not useful for ghc
@@ -45,6 +48,7 @@ Summary(pl.UTF-8):	Biblioteka profilująca %{pkgname} dla GHC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ghc-hslua-prof
+Requires:	ghc-temporary-prof
 
 %description prof
 Profiling %{pkgname} library for GHC.  Should be installed when
