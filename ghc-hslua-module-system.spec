@@ -6,7 +6,7 @@
 Summary:	Lua module wrapper around Haskell's System module
 Name:		ghc-%{pkgname}
 Version:	0.2.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/hslua-module-system
